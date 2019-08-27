@@ -1,3 +1,5 @@
+import math
+
 def check(grid):
 	global row, count
 
@@ -66,3 +68,13 @@ def check(grid):
 	step()
 	if count == 1:
 		print("Success. The puzzle had only one solution.")
+
+def grid(s):
+
+	s = [c for c in s if c.isalnum()]
+	size = int(math.sqrt(len(s)))
+	if size*size != len(s):
+		print("Error: grid is not square.")
+		return
+
+	return [[s[i+size*j] for i in range(size)] for j in range(size)]
